@@ -4,7 +4,7 @@ import os
 ROOT_PATH = 'F:/msc_data/pin_density'
 
 # Model Paths
-TIP_ID = '1027'
+TIP_ID = '127'
 BASE_DATA_PATH = os.path.join(ROOT_PATH, f"collect_{TIP_ID}_5D_surface")
 BASE_MODEL_PATH = os.path.join(ROOT_PATH, f"collect_{TIP_ID}_5D_surface", "model")
 

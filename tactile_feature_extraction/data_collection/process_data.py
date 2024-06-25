@@ -3,6 +3,7 @@ import shutil
 import pandas as pd
 
 from tactile_feature_extraction import BASE_DATA_PATH
+from tactile_feature_extraction import TIP_ID
 
 def col_rename(path):
     df = pd.read_csv(f'{path}/targets.csv')
@@ -36,7 +37,7 @@ def move_and_rename(targetPath, framePath, newPath, processed):
 
 # Set root path
 dataPath_0 = BASE_DATA_PATH
-dataPath = os.path.join(BASE_DATA_PATH, 'linshear_surface_3d', 'nanoTip')
+dataPath = os.path.join(BASE_DATA_PATH, 'linshear_surface_3d', TIP_ID)
 
 # Define train & validation paths
 trainDir = f'{dataPath}/train'

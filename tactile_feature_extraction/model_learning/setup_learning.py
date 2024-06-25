@@ -19,7 +19,7 @@ def parse_args():
         '-s', '--sensors',
         nargs='+',
         help="Choose sensor from ['s1_minitip_331', 's2_minitip_331', 's3_minitip_331'].",
-        default=['127']
+        default=['1027']
     )
     parser.add_argument(
         '-m', '--models',
@@ -57,7 +57,7 @@ def setup_learning(save_dir=None):
     }
 
     image_processing_params = {
-        'dims': (180, 180),
+        'dims': (128, 128),
         'bbox': None,
         # 'blur': 11,
         'blur': None,

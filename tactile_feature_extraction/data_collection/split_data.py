@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 
 from tactile_feature_extraction import BASE_DATA_PATH
+from tactile_feature_extraction import TIP_ID
 
 data_path = BASE_DATA_PATH
 indir_name = "data"
@@ -20,7 +21,7 @@ inds = [inds_true, ~inds_true]
 for outdir_name, ind in zip(outdir_names, inds):
 
     indir = os.path.join(data_path, indir_name)
-    outdir = os.path.join(data_path, 'linshear_surface_3d', 'nanoTip', outdir_name)
+    outdir = os.path.join(data_path, 'linshear_surface_3d', TIP_ID, outdir_name)
 
     # point image names to indir
     targets_df['image_name'] = f'{data_path}/processed_frames/' + targets_df.image_name.map(str) 

@@ -6,7 +6,7 @@ import shutil
 import time
 import subprocess
 
-from gather_data import DataGather
+from gather_data import DataGatherer
 from cri.robot import SyncRobot, AsyncRobot
 from cri.controller import RTDEController
 
@@ -97,10 +97,17 @@ def collect(target_df, dataPath, resume_from, sleep_time, i):
             tap = [0,0,pose[2] ,0,0,0]
             pose = (pose - tap)
             robot.move_linear(pose - move)
+
+            # Begin sample here for non-sequential data:
             dg.begin_sample(i)
+
             robot.move_linear(pose - move + tap)
             robot.linear_speed = 10
             time.sleep(0.25)
+
+            # begin sample here for sequential data:
+            #dg.begin_sample(i)
+
             robot.move_linear(pose + tap)
             time.sleep(sleep_time)
 
@@ -162,7 +169,7 @@ else:
     dataPath = BASE_DATA_PATH
     target_df = pd.read_csv(f'{dataPath}/targets.csv')
 
-with DataGather(resume=resume, dataPath=dataPath, time_series=False, display_image=True) as dg, AsyncRobot(SyncRobot(RTDEController(ip='192.11.72.10'))) as robot:
+with DataGatherer(resume=resume, dataPath=dataPath, time_series=False, display_image=True, FT_ip='192.168.1.1', resize=[True, (300,225)]) as dg, AsyncRobot(SyncRobot(RTDEController(ip='192.11.72.10'))) as robot:
 
     time.sleep(1)
 

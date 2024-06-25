@@ -5,7 +5,6 @@ import pandas as pd
 from tqdm import tqdm
 
 from sample_analysis import Analyser
-
 from tactile_feature_extraction import BASE_DATA_PATH
 
 def try_open_image(image_path):
@@ -37,7 +36,7 @@ for i in tqdm(range(sample_range[0], sample_range[1])):
         try_open_image(img_path)
 
         # Get forces:
-        forces = analyse.get_data_and_labels(i)
+        forces = analyse.get_labels(i)
         Fx.append(forces[0])
         Fy.append(forces[1])
         Fz.append(forces[2])
