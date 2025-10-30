@@ -7,7 +7,7 @@ This repo contains code for tactile data collection with a vision-based tactile 
 This repository require the [Common Robot Interface](https://github.com/dexterousrobot/common_robot_interface) and [Video Stream Processor](https://github.com/dexterousrobot/video_stream_processor.git) repositories to be pre-installed. Please follow the instructions within these repos first. 
 
 ```
-git clone https://github.com/chrisjford/tactile_msc.git
+git clone https://github.com/chrisjford/TactileFTP.git
 pip install -e .
 ```
 
@@ -25,3 +25,4 @@ The code for model learning are under the `/model_learning` directory. To train 
 
 ## Inference
 Example inference codes has been provided under the `/examples` folder. To visualize the predictions of the tactile sensor in real time, run `demo_realtime_predictions.py`.
+
